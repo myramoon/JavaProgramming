@@ -1,4 +1,5 @@
-/* PURPOSE: Adds part time employee and wage */
+/* PURPOSE: Solves using switch case statement */
+
 public class EmployeeWageBuilder {
 	
 	//CONSTANTS
@@ -11,20 +12,22 @@ public class EmployeeWageBuilder {
 		int workHours;
 		int empWage;
 
-		int attendanceStatus=(int) Math.floor(Math.random() * 10) % 3;  
-		if (attendanceStatus == IS_FULL_TIME)		               
-			workHours=8;
-		else if (attendanceStatus == IS_PART_TIME)
-			workHours=4;
-		else
-			workHours=0;
-		
-		empWage=workHours * EMP_RATE_PER_HOUR; 				
+		int attendanceStatus=(int) Math.floor(Math.random() * 10) % 3; //Get attendance 
+		switch (attendanceStatus) {		               
+			case IS_FULL_TIME:
+ 				workHours=8;
+				break;
+			case IS_PART_TIME:
+				workHours=4;
+				break;
+		    default:
+				workHours=0;
+		}
+		empWage=workHours * EMP_RATE_PER_HOUR; 		   			      //wage calculation
 		System.out.println("Employee wage for the day is : "+empWage);
 	}
 
 }
-
 
 
 
