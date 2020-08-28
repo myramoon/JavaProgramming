@@ -26,30 +26,30 @@ public class EmployeeWageBuilder {
 	public void computeWage() {
 
 		//LOCAL VARIABLES
-      	int workHours=0;
-      	int totalWorkHours=0;
-      	int totalWorkingDays=0;
+      		int workHours=0;
+      		int totalWorkHours=0;
+      		int totalWorkingDays=0;
 
 		//while loop to calculate work hours for each day until either 100hours are done or 20 days are reached
-      	while (totalWorkHours <= maxMonthlyHours && totalWorkingDays <maxWorkingDays) {
+      		while (totalWorkHours <= maxMonthlyHours && totalWorkingDays <maxWorkingDays) {
 
-      		totalWorkingDays++;                     			       //Increment working days logged till now
-      		int attendanceStatus=(int) Math.floor(Math.random() * 10) % 3;         //Get attendance
+      			totalWorkingDays++;                     			       //Increment working days logged till now
+      			int attendanceStatus=(int) Math.floor(Math.random() * 10) % 3;         //Get attendance
 
-      		switch (attendanceStatus) {             			       //Condition check for attendance duration
+      			switch (attendanceStatus) {             			       //Condition check for attendance duration
 
-        		case IS_FULL_TIME:
+        			case IS_FULL_TIME:
 					workHours=8;
-             	    break;
-         		case IS_PART_TIME:
-            	    workHours=4;
-            		break;
-                default:
-         		    workHours=0;
+             	    			break;
+         			case IS_PART_TIME:
+            	    			workHours=4;
+            				break;
+               		 	default:
+         		    		workHours=0;
 
         	}
 
-     	    totalWorkHours+=workHours;  	                           		//total working hours logged upto current day
+     	    	totalWorkHours+=workHours;  	                           		//total working hours logged upto current day
      		System.out.println("Day number: "+ totalWorkingDays + "  Emp Hr: "+ workHours);
 
         }
