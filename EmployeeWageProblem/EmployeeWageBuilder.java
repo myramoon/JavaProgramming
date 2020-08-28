@@ -11,12 +11,12 @@ public class EmployeeWageBuilder {
 	
 	//STATIC METHOD
 	public static void computeWage() {
-		//VARIABLES
+	//VARIABLES
       	int workHours=0;
       	int totalWorkHours=0;
       	int totalWorkingDays=0;
 
-		//while loop to calculate work hours for each day until either 100hours are done or 20 days are reached
+	//while loop to calculate work hours for each day until either 100hours are done or 20 days are reached
       	while (totalWorkHours <= MAX_MONTHLY_HOURS && totalWorkingDays <MAX_WORKING_DAYS) {
 
       		totalWorkingDays++;                     			//Increment working days counter
@@ -24,24 +24,24 @@ public class EmployeeWageBuilder {
 
       		switch (attendanceStatus) {             			//Condition check for 0 or 1
 
-        		 case IS_FULL_TIME:
-                 	workHours=8;
-               		break;
-         		 case IS_PART_TIME:
-            		workHours=4;
-            		break;
-              	 default:
-         		    workHours=0;
-			}
+        		case IS_FULL_TIME:
+                		workHours=8;
+               			break;
+         		case IS_PART_TIME:
+            			workHours=4;
+            			break;
+              	 	default:
+         		    	workHours=0;
+		}
 
      		totalWorkHours+=workHours;                   	   //total working hours logged upto current day
      		System.out.println("Day number: "+ totalWorkingDays + "  Emp Hr: "+ workHours);
 		}
 
-      	    int totalEmpWage=totalWorkHours * EMP_RATE_PER_HOUR;                      //Calculate month's wages
-            System.out.println("Total employee wage for the month : "+totalEmpWage);  //Print final monthly wage
+      	    	int totalEmpWage=totalWorkHours * EMP_RATE_PER_HOUR;                      //Calculate month's wages
+            	System.out.println("Total employee wage for the month : "+totalEmpWage);  //Print final monthly wage
 
-	}
+		}
 	public static void main(String[] args) {
 
 		computeWage(); 		                                                          //call to static method that computes monthly wages
