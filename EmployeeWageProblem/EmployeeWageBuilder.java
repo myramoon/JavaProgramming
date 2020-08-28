@@ -1,4 +1,4 @@
-/*PURPOSE: Refactor to have one EmployeeWageBuilder for multiple companies.Use array to store company objects */
+/*PROGRAM SUMMARY: Refactor to have one EmployeeWageBuilder for multiple companies using INTERFACE approach */
 
 public class EmployeeWageBuilder {
 	
@@ -29,6 +29,5 @@ public class EmployeeWageBuilder {
 	
 
 }
-
 
 
