@@ -1,4 +1,4 @@
-/*PURPOSE: Refactor to have list of multiple companies to manage employee wage */
+/*PURPOSE: Refactor to get total wage when queried by company */
 
 import java.util.*;
 
@@ -8,18 +8,21 @@ public class WageCalculation implements ComputeWageInterface {
         public static final int IS_FULL_TIME=2;
         public static final int IS_PART_TIME=1;
         
-        //ArrayList declaration
+        //ArrayList and Map declaration
         private ArrayList<EmployeeWageBuilder> companyEmpWageList;
+	private Map<String,EmployeeWageBuilder> companyToEmpWageMap;
 
         //DEFAULT CONSTRUCTOR
         public WageCalculation() {
         	companyEmpWageList=new ArrayList<>();
-        }
+     		companyToEmpWageMap=new HashMap<>();	
+	}
 
         //INTERFACE IMPLEMENTATION  
         public void addCompanyDetails(String company,int empRatePerHour, int maxWorkingDays, int maxMonthlyHours) {
         	EmployeeWageBuilder companyDetails=new EmployeeWageBuilder(company,empRatePerHour,maxWorkingDays,maxMonthlyHours);
         	companyEmpWageList.add(companyDetails);   					//company details current object added to list
+		companyToEmpWageMap.put(company,companyDetails);
         }
         
         public void computeEmployeeWage() {  							//for each company object, call method that sets total wage for it.
@@ -29,6 +32,12 @@ public class WageCalculation implements ComputeWageInterface {
                 	System.out.println(companyDetails); 
                 }
         }
+
+	@Override
+	public int getTotalWage(String company) {
+		return companyToEmpWageMap.get(company).totalEmpWage;
+	}
+
         //INSTANCE METHOD
         private int computeEmployeeWage(EmployeeWageBuilder companyDetails) { 
                 //LOCAL VARIABLES
@@ -67,7 +76,7 @@ public class WageCalculation implements ComputeWageInterface {
         	companyObject.addCompanyDetails("DMart",20,2,10);				  //add details of company to linked list	
         	companyObject.addCompanyDetails("Reliance",20,4,20);
         	companyObject.computeEmployeeWage();  	                                          //call to computation method
-
+		System.out.println("Total Wage for DMart company: "+ companyObject.getTotalWage("DMart"));
 
         }
 

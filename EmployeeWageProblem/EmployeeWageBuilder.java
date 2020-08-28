@@ -1,5 +1,4 @@
-/*PURPOSE:Refactor to have list of multiple companies to manage employee wage */
-
+/*PURPOSE: Refactor to get total wage when queried by company */
 public class EmployeeWageBuilder {
 	
 	//INSTANCE VARIABLES
